@@ -245,12 +245,22 @@ button { font-family: var(--font); }
 }
 .about-visual { display: flex; flex-direction: column; gap: 28px; }
 .about-photo {
-    width: 100%; aspect-ratio: 3/4;
+    width: 100%;
     background: linear-gradient(135deg, var(--primary) 0%, #7c3aed 100%);
-    border-radius: var(--radius-lg); overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
+    min-height: 400px;
+    max-width: 400px; /* Begrenzt die Breite auf Mobilgeräten */
+    aspect-ratio: 1 / 1; /* Erzeugt ein quadratisches Bild */
+    margin: 0 auto 2rem auto; /* Zentriert das Bild mobil */
+    border-radius: 1.5rem;
+    overflow: hidden;
 }
-.about-photo img { width: 100%; height: 100%; object-fit: cover; }
+.about-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Behält Proportionen bei */
+    object-position: top center; /* Wichtig: Richtet den Fokus auf das Gesicht */
+    display: block;
+}
 .about-photo-placeholder {
     font-size: 72px; font-weight: 900;
     color: rgba(255,255,255,.25); letter-spacing: -2px;
