@@ -461,42 +461,50 @@
                 <div class="contact-grid">
 
                     <!-- Form -->
-                    <!-- TODO: Registrieren Sie sich auf formspree.io und ersetzen Sie YOURFORMID -->
-                    <form class="contact-form fade-in" action="https://formspree.io/f/YOURFORMID" method="POST">
+                    <form class="contact-form fade-in" id="contact-form" novalidate>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">Name *</label>
-                                <input type="text" id="name" name="name" required placeholder="Max Mustermann">
+                                <input type="text" id="name" name="fi-sender-fullName" required placeholder="Max Mustermann">
                             </div>
                             <div class="form-group">
                                 <label for="email">E-Mail *</label>
-                                <input type="email" id="email" name="email" required placeholder="max@beispiel.de">
+                                <input type="email" id="email" name="fi-sender-email" required placeholder="max@beispiel.de">
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="phone">Telefon</label>
-                                <input type="tel" id="phone" name="phone" placeholder="+49 123 456789">
+                                <input type="tel" id="phone" name="fi-text-telefon" placeholder="+49 123 456789">
                             </div>
                             <div class="form-group">
                                 <label for="website">Haben Sie eine Webseite?</label>
-                                <select id="website" name="website_status">
+                                <select id="website" name="fi-select-webseite">
                                     <option value="">Bitte wählen …</option>
-                                    <option value="ja">Ja, vorhanden</option>
-                                    <option value="nein">Nein, noch keine</option>
-                                    <option value="veraltet">Ja, aber veraltet</option>
+                                    <option value="Ja, vorhanden">Ja, vorhanden</option>
+                                    <option value="Nein, noch keine">Nein, noch keine</option>
+                                    <option value="Ja, aber veraltet">Ja, aber veraltet</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="message">Ihr Anliegen *</label>
-                            <textarea id="message" name="message" required rows="5"
+                            <textarea id="message" name="fi-text-anliegen" required rows="5"
                                 placeholder="Beschreiben Sie kurz, was Sie benötigen …"></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-full">Anfrage absenden →</button>
+                        <div class="form-group form-checkbox">
+                            <input type="checkbox" id="dsgvo" name="fi-checkbox-dsgvo" value="Zugestimmt" required>
+                            <label for="dsgvo">
+                                Durch Absenden des Formulars erklären Sie sich damit einverstanden, dass ich Ihre Daten zur Bearbeitung Ihrer Anfrage verarbeiten und Sie kontaktieren darf. Weitere Informationen finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a>. *
+                            </label>
+                        </div>
+
+                        <div class="form-feedback" id="form-feedback" aria-live="polite"></div>
+
+                        <button type="submit" class="btn btn-primary btn-full" id="form-submit">Anfrage absenden →</button>
                         <p class="form-note">* Pflichtfelder. Ihre Daten werden vertraulich behandelt.</p>
                     </form>
 
@@ -590,6 +598,7 @@
         </div>
     </footer>
 
+    <script src="https://forminit.com/sdk/v1/forminit.js"></script>
     <script src="js/main.js"></script>
 </body>
 

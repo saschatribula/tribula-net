@@ -63,16 +63,43 @@ window.addEventListener('scroll', () => {
     });
 }, { passive: true });
 
-// ── Contact form feedback ────────────────────
-const form = document.querySelector('.contact-form');
-if (form) {
-    form.addEventListener('submit', async (e) => {
-        const btn = form.querySelector('[type="submit"]');
-        btn.textContent = 'Wird gesendet …';
-        btn.disabled = true;
-        // Formspree handles the POST; re-enable if error occurs
-        await new Promise(r => setTimeout(r, 3000));
-        btn.textContent = 'Anfrage absenden →';
-        btn.disabled = false;
+// ── Forminit contact form ────────────────────
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+    const forminit = new Forminit();
+    const submitBtn  = document.getElementById('form-submit');
+    const feedback   = document.getElementById('form-feedback');
+
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Basic HTML5 validation pass-through
+        if (!contactForm.checkValidity()) {
+            contactForm.reportValidity();
+            return;
+        }
+
+        submitBtn.textContent = 'Wird gesendet …';
+        submitBtn.disabled = true;
+        feedback.className = 'form-feedback';
+        feedback.textContent = '';
+
+        const { error } = await forminit.submit('ps8gpjty2rf', new FormData(contactForm));
+
+        if (error) {
+            feedback.className = 'form-feedback form-feedback--error';
+            feedback.textContent = 'Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an info@tribula.net.';
+            submitBtn.textContent = 'Anfrage absenden →';
+            submitBtn.disabled = false;
+            return;
+        }
+
+        // Success – replace form content
+        contactForm.innerHTML = `
+            <div class="form-success">
+                <div class="form-success__icon">✓</div>
+                <h3>Vielen Dank!</h3>
+                <p>Ihre Anfrage wurde erfolgreich übermittelt. Ich melde mich in der Regel innerhalb von 24 Stunden bei Ihnen.</p>
+            </div>`;
     });
 }

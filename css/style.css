@@ -372,6 +372,62 @@ button { font-family: var(--font); }
 }
 .form-group textarea { resize: vertical; min-height: 120px; }
 .form-note { font-size: 13px; color: var(--text-muted); text-align: center; }
+
+/* Checkbox */
+.form-checkbox {
+    display: flex; align-items: flex-start; gap: 12px;
+}
+.form-checkbox input[type="checkbox"] {
+    width: 18px; height: 18px; min-width: 18px;
+    margin-top: 2px; accent-color: var(--primary);
+    cursor: pointer; border-radius: 4px;
+    padding: 0; border: none; box-shadow: none;
+}
+.form-checkbox label {
+    font-size: 13px; font-weight: 400; color: var(--text-muted);
+    line-height: 1.6; cursor: pointer;
+}
+.form-checkbox label a { color: var(--primary); text-decoration: underline; }
+.form-checkbox label a:hover { color: var(--primary-dark); }
+
+/* Form feedback & success */
+.form-feedback {
+    font-size: 14px; border-radius: 8px; padding: 0;
+    transition: all var(--tr);
+}
+.form-feedback--error {
+    background: #fef2f2; color: #b91c1c;
+    border: 1px solid #fecaca; padding: 14px 16px;
+}
+.form-success {
+    text-align: center; padding: 48px 24px;
+}
+.form-success__icon {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: #dcfce7; color: #16a34a;
+    font-size: 24px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+}
+.form-success h3 { font-size: 22px; font-weight: 700; color: var(--dark); margin-bottom: 10px; }
+.form-success p  { color: var(--text-muted); line-height: 1.7; }
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.checkbox-group input {
+    width: auto;
+    margin-top: 5px;
+}
+
+.checkbox-group label {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    cursor: pointer;
+}
 .contact-cta-card {
     background: var(--dark); color: var(--white);
     padding: 36px; border-radius: var(--radius-lg); margin-bottom: 24px;
