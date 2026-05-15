@@ -48,6 +48,50 @@ document.querySelectorAll('.faq-question').forEach(button => {
     });
 });
 
+// ── Hero Lottie scroll animation ─────────────
+(function () {
+    const items = document.querySelectorAll('.lottie-item');
+    if (!items.length) return;
+
+    // Each item flies in its own direction when scrolling out
+    const dirs = [
+        { x: 260, y: -170 },   // analyse  → top-right
+        { x: 320, y:   10 },   // UX       → right
+        { x: 260, y:  170 },   // seo      → bottom-right
+    ];
+
+    let ticking = false;
+
+    function update() {
+        const hero = document.getElementById('hero');
+        if (!hero) return;
+
+        // Reset and bail on narrow screens
+        if (window.innerWidth < 1280) {
+            items.forEach(el => { el.style.transform = ''; el.style.opacity = ''; });
+            return;
+        }
+
+        // progress: 0 (hero fully visible) → 1 (hero scrolled away)
+        const p = Math.min(Math.max(window.scrollY / (hero.offsetHeight * 0.55), 0), 1);
+
+        items.forEach((el, i) => {
+            const d = dirs[i] ?? dirs[0];
+            el.style.transform = `translate(${d.x * p}px, ${d.y * p}px)`;
+            el.style.opacity   = String(1 - p);
+        });
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+
+    window.addEventListener('resize', update, { passive: true });
+    update(); // run once on load
+})();
+
 // ── Active nav link ──────────────────────────
 const sections = document.querySelectorAll('section[id]');
 const navLinks  = document.querySelectorAll('.nav-link[href^="#"]');
