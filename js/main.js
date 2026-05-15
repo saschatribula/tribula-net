@@ -107,6 +107,38 @@ window.addEventListener('scroll', () => {
     });
 }, { passive: true });
 
+// ── Next-section floating button (mobile) ────
+(function () {
+    const btn = document.getElementById('next-section-btn');
+    if (!btn) return;
+
+    const ids      = ['hero','probleme','leistungen','prozess','ueber-uns','referenzen','projekte','faq','kontakt'];
+    const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
+
+    function currentIndex() {
+        // section whose top is closest to (but not below) the viewport midpoint
+        const mid = window.scrollY + window.innerHeight * 0.5;
+        let idx = 0;
+        sections.forEach((s, i) => { if (s.offsetTop <= mid) idx = i; });
+        return idx;
+    }
+
+    function update() {
+        const idx  = currentIndex();
+        const show = idx > 0 && idx < sections.length - 1;   // hide on hero + last section
+        btn.classList.toggle('visible', show);
+        if (show) btn.dataset.target = sections[idx + 1].id;
+    }
+
+    btn.addEventListener('click', () => {
+        const next = document.getElementById(btn.dataset.target);
+        if (next) next.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+})();
+
 // ── Forminit contact form ────────────────────
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {

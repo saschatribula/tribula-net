@@ -160,7 +160,7 @@ button { font-family: var(--font); }
 }
 
 .lottie-item {
-    width: 200px; height: 200px;
+    width: 250px; height: 250px;
     will-change: transform, opacity;
 }
 
@@ -509,6 +509,36 @@ button { font-family: var(--font); }
 .footer-col ul a:hover { color: var(--white); }
 .footer-bottom { padding: 24px 0; text-align: center; }
 .footer-bottom p { font-size: 13px; color: rgba(255,255,255,.35); }
+
+/* ===== NEXT-SECTION BUTTON (mobile) ===== */
+.next-section-btn {
+    display: none;
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 50;
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    align-items: center; justify-content: center;
+    box-shadow: 0 4px 16px rgba(79,70,229,.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease, transform .3s ease, background var(--tr);
+}
+.next-section-btn.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+.next-section-btn:hover  { background: var(--primary-dark); }
+.next-section-btn:active { transform: scale(.93); }
+
+@media (max-width: 768px) {
+    .next-section-btn { display: flex; }
+}
 
 /* ===== LEGAL PAGES ===== */
 .legal-page { padding: 140px 0 100px; max-width: 760px; margin: 0 auto; }
