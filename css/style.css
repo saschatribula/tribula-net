@@ -64,7 +64,7 @@ button { font-family: var(--font); }
 .btn-outline:hover { background: rgba(255,255,255,.1); border-color: var(--white); }
 .btn-full { width: 100%; }
 
-.section-header { text-align: center; margin-bottom: 60px; }
+.section-header { margin-bottom: 60px; display: flex; flex-direction: column; align-items: center; text-align: center; }
 .section-label {
     display: inline-block; font-size: 13px; font-weight: 600; color: var(--primary);
     text-transform: uppercase; letter-spacing: .1em; margin-bottom: 12px;
@@ -88,7 +88,7 @@ button { font-family: var(--font); }
     backdrop-filter: blur(12px);
     box-shadow: var(--shadow);
 }
-
+.header-badge-img { width:150px; height:auto; }
 .nav {
     display: flex; align-items: center; justify-content: space-between; height: 72px;
 }
@@ -333,10 +333,11 @@ button { font-family: var(--font); }
     background: var(--primary); color: var(--white);
     display: flex; align-items: center; justify-content: center;
     font-size: 12px; font-weight: 700; flex-shrink: 0; letter-spacing: .5px;
+    overflow:hidden
 }
 .testimonial-author strong { display: block; font-size: 14px; font-weight: 700; color: var(--dark); }
 .testimonial-author span { font-size: 13px; color: var(--text-muted); }
-
+.testimonial-badge { width:150px; height:auto; margin-bottom: 12px}
 /* ===== PROJECTS ===== */
 .projects { padding: 100px 0; background: var(--white); }
 .projects-grid {
