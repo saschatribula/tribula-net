@@ -23,24 +23,7 @@
 <body>
 
     <!-- ══════════════ HEADER ══════════════ -->
-    <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#" class="nav-logo">
-                <span class="logo-text">tribula<span class="dot">.</span>net</span>
-            </a>
-
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#leistungen" class="nav-link">Leistungen</a></li>
-                <li><a href="#prozess" class="nav-link">Prozess</a></li>
-                <li><a href="#projekte" class="nav-link">Projekte</a></li>
-                <li><a href="#kontakt" class="nav-link nav-cta">Erstgespräch buchen</a></li>
-            </ul>
-
-            <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
-                <span></span><span></span><span></span>
-            </button>
-        </nav>
-    </header>
+    <div id="site-header"></div>
 
     <main>
 
@@ -357,33 +340,47 @@
 
                 <div class="projects-grid">
                     <div class="project-card fade-in">
-                        <!-- Ersetzen durch <img src="assets/projekt-witchling.jpg" alt="…"> -->
-                        <div class="project-preview" style="background: linear-gradient(135deg, #667eea, #764ba2);">
-                            <img src="assets/witchlingworkshop.jpeg" alt="Witchlingworkshop Shopify Store">
+                        <div class="project-img-wrap">
+                            <img src="assets/witchlingworkshop.jpeg" alt="Witchling Workshop Shopify Store">
                         </div>
                         <div class="project-info">
                             <h3>Witchling Workshop</h3>
-                            <p>Webdesign &amp; Branding</p>
+                            <p class="project-type">Webdesign &amp; Branding</p>
+                            <ul class="project-results">
+                                <li>↗ Individueller Shopify-Store von Grund auf</li>
+                                <li>↗ Starke Markenidentität &amp; modernes Branding</li>
+                                <li>↗ Regelmäßige Neuanfragen seit Launch</li>
+                            </ul>
                         </div>
                     </div>
 
                     <div class="project-card fade-in">
-                        <div class="project-preview" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
-                            <img src="assets/thermo-fen.jpeg" alt="Thermo-Fen Webseite">
+                        <div class="project-img-wrap">
+                            <img src="assets/thermo-fen.jpeg" alt="Thermo-Fen GmbH Webseite">
                         </div>
                         <div class="project-info">
                             <h3>Thermo-Fen GmbH</h3>
-                            <p>Webseite &amp; SEO</p>
+                            <p class="project-type">Webseite &amp; SEO</p>
+                            <ul class="project-results">
+                                <li>↗ Kompletter Relaunch der Unternehmenswebseite</li>
+                                <li>↗ Top-3 Google-Platzierung in der Region</li>
+                                <li>↗ Deutlich mehr Anfragen seit Go-Live</li>
+                            </ul>
                         </div>
                     </div>
 
                     <div class="project-card fade-in">
-                        <div class="project-preview">
-                            <img src="assets/eteam.jpeg" alt="E-Team Elektro Webseite">
+                        <div class="project-img-wrap">
+                            <img src="assets/eteam.jpeg" alt="E-Team Elektro GmbH Webseite">
                         </div>
                         <div class="project-info">
-                            <h3>E-Team Elektro</h3>
-                            <p>Webdesign &amp; Conversion-Optimierung</p>
+                            <h3>E-Team Elektro GmbH</h3>
+                            <p class="project-type">Website &amp; SEO Optimierung</p>
+                            <ul class="project-results">
+                                <li>↗ Google Rang 1 innerhalb von 2 Monaten</li>
+                                <li>↗ Regelmäßige Neuanfragen seit Launch</li>
+                                <li>↗ Mehr Sichtbarkeit in der Region</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -566,56 +563,7 @@
 
 
     <!-- ══════════════ FOOTER ══════════════ -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-
-                <div class="footer-brand">
-                    <a href="#" class="nav-logo">
-                        <span class="logo-text">tribula<span class="dot">.</span></span>
-                    </a>
-                    <p>Conversion-optimierte Webseiten für den deutschsprachigen Mittelstand.</p>
-                    <div class="social-links">
-                        <a href="https://x.com/saschatribula" aria-label="Twitter / X">x</a>
-                    </div>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Leistungen</h4>
-                    <ul>
-                        <li><a href="#leistungen">Webdesign</a></li>
-                        <li><a href="#leistungen">SEO &amp; SEA</a></li>
-                        <li><a href="#leistungen">Shopify</a></li>
-                        <li><a href="#leistungen">IT-Beratung</a></li>
-                        <li><a href="#leistungen">Wartung</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Unternehmen</h4>
-                    <ul>
-                        <li><a href="#ueber-uns">Über mich</a></li>
-                        <li><a href="#projekte">Projekte</a></li>
-                        <li><a href="#referenzen">Referenzen</a></li>
-                        <li><a href="#kontakt">Kontakt</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Rechtliches</h4>
-                    <ul>
-                        <li><a href="impressum.html">Impressum</a></li>
-                        <li><a href="datenschutz.html">Datenschutz</a></li>
-                    </ul>
-                </div>
-
-            </div>
-
-            <div class="footer-bottom">
-                <p>© 2025 Tribula Consulting – Sascha Tribula. Alle Rechte vorbehalten.</p>
-            </div>
-        </div>
-    </footer>
+    <div id="site-footer"></div>
 
     <!-- Floating next-section button – mobile only -->
     <button class="next-section-btn" id="next-section-btn" aria-label="Nächster Abschnitt">
@@ -626,6 +574,7 @@
 
     <script src="js/dotlottie-player.js"></script>
     <script src="js/forminit.js"></script>
+    <script src="js/partials.js"></script>
     <script src="js/main.js"></script>
 </body>
 
