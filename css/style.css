@@ -565,7 +565,7 @@ button { font-family: var(--font); }
         transition: all var(--tr);
     }
     .nav-menu.open { transform: translateY(0); opacity: 1; pointer-events: all; }
-    .nav-link { color: var(--text-muted) !important; padding: 12px 16px; }
+    .nav-link { color: var(--text-muted); padding: 12px 16px; }
     .nav-link:hover { background: var(--light) !important; color: var(--dark) !important; }
     .nav-cta { text-align: center; margin-top: 8px; }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
