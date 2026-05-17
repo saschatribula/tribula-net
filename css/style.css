@@ -223,6 +223,83 @@ button { font-family: var(--font); }
 .problem-card h3 { font-size: 20px; font-weight: 700; color: var(--dark); margin-bottom: 10px; }
 .problem-card p { color: var(--text-muted); line-height: 1.75; }
 
+/* ===== BENTO GRID ===== */
+.bento-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 16px;
+}
+.bento-card {
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color var(--tr), box-shadow var(--tr), transform var(--tr);
+}
+.bento-card--light {
+    background: var(--white);
+    border: 1px solid var(--border);
+}
+.bento-card--light:hover {
+    border-color: rgba(79,70,229,.28);
+    box-shadow: 0 0 0 1px rgba(79,70,229,.07), 0 8px 24px rgba(79,70,229,.09);
+    transform: translateY(-2px);
+}
+.bento-card--dark {
+    background: var(--dark);
+    border: 1px solid rgba(255,255,255,.07);
+}
+.bento-card--dark:hover {
+    border-color: rgba(129,140,248,.35);
+    box-shadow: 0 0 48px rgba(79,70,229,.2);
+    transform: translateY(-2px);
+}
+.bento-card--full { grid-column: 1 / -1; }
+.bento-card h3 {
+    font-size: 20px; font-weight: 700; margin-bottom: 10px; line-height: 1.3;
+    color: var(--dark);
+}
+.bento-card--dark h3 { color: var(--white); }
+.bento-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+.bento-card--dark p { color: rgba(255,255,255,.55); }
+
+/* Layout helpers */
+.bento-split {
+    display: flex; align-items: center; gap: 36px;
+    min-height: 220px;
+}
+.bento-split .bento-text { flex: 1; }
+.bento-split .bento-visual { flex-shrink: 0; }
+
+.bento-stacked {
+    display: flex; flex-direction: column;
+    min-height: 240px;
+}
+.bento-stacked .bento-visual {
+    flex: 1; margin-bottom: 20px;
+    display: flex; align-items: flex-end;
+}
+.bento-landscape {
+    display: flex; align-items: center; gap: 48px;
+}
+.bento-landscape .bento-text { min-width: 240px; flex-shrink: 0; }
+.bento-landscape .bento-visual { flex: 1; overflow: hidden; }
+.bento-landscape .bento-visual svg { width: 100%; max-width: 320px; }
+
+.bento-grid--3col { grid-template-columns: repeat(3, 1fr); }
+.bento-card--span2 { grid-column: span 2; }
+
+@media (max-width: 900px) {
+    .bento-grid { grid-template-columns: 1fr; }
+    .bento-grid--3col { grid-template-columns: 1fr; }
+    .bento-card--full,
+    .bento-card--span2 { grid-column: 1; }
+    .bento-split { flex-direction: column; gap: 24px; min-height: auto; }
+    .bento-stacked { min-height: auto; }
+    .bento-landscape { flex-direction: column; gap: 24px; }
+    .bento-landscape .bento-visual svg { max-width: 100%; }
+}
+
 /* ===== SERVICES ===== */
 .services { padding: 100px 0; background: var(--white); }
 .services-grid {
@@ -541,6 +618,85 @@ button { font-family: var(--font); }
     .next-section-btn { display: flex; }
 }
 
+/* ===== PRICING ===== */
+.pricing { padding: 100px 0; background: var(--light); }
+.pricing-toggle {
+    display: flex; justify-content: center; gap: 6px;
+    margin-bottom: 48px;
+    background: var(--border); border-radius: 12px;
+    padding: 6px; width: fit-content; margin-left: auto; margin-right: auto;
+}
+.pricing-tab {
+    padding: 12px 28px; border-radius: 8px; border: none;
+    font-family: var(--font); font-size: 15px; font-weight: 600;
+    cursor: pointer; transition: all var(--tr);
+    background: transparent; color: var(--text-muted);
+}
+.pricing-tab.active {
+    background: var(--white); color: var(--primary);
+    box-shadow: var(--shadow);
+}
+.pricing-tab:hover:not(.active) { color: var(--dark); }
+.pricing-panel { display: none; }
+.pricing-panel.active { display: block; }
+.pricing-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px; align-items: start;
+}
+.pricing-card {
+    border-radius: var(--radius-lg); border: 1px solid var(--border);
+    padding: 36px; position: relative; background: var(--white);
+    transition: all var(--tr);
+}
+.pricing-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.pricing-card--featured {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px var(--primary), var(--shadow-lg);
+    background: var(--white);
+}
+.pricing-badge {
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--primary); color: var(--white);
+    padding: 5px 18px; border-radius: 100px;
+    font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+    white-space: nowrap;
+}
+.pricing-header { margin-bottom: 28px; }
+.pricing-header h3 { font-size: 22px; font-weight: 800; color: var(--dark); margin-bottom: 8px; }
+.pricing-price { font-size: 34px; font-weight: 900; color: var(--primary); margin-bottom: 8px; line-height: 1.1; }
+.pricing-ideal { font-size: 13px; color: var(--text-muted); }
+.pricing-features { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.pricing-features li {
+    font-size: 14px; color: var(--text-muted); padding-left: 22px; position: relative; line-height: 1.5;
+}
+.pricing-features li::before {
+    content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: 700; font-size: 13px;
+}
+.pricing-managed-note {
+    text-align: center; font-size: 15px; color: var(--text-muted); margin: 48px auto 0;
+    max-width: 560px; line-height: 1.7;
+    padding: 20px 24px; background: var(--white); border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+.pricing-cta {
+    display: flex; flex-direction: column; align-items: center; gap: 16px;
+    margin-top: 48px;
+}
+.pricing-cta-link {
+    font-size: 15px; font-weight: 600; color: var(--primary);
+    text-decoration: underline; text-underline-offset: 3px; transition: color var(--tr);
+}
+.pricing-cta-link:hover { color: var(--primary-dark); }
+.pricing-cta-note {
+    font-size: 13px; color: var(--text-muted); text-align: center; max-width: 500px; line-height: 1.6;
+}
+
+@media (max-width: 960px) {
+    .pricing-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    .pricing-toggle { width: 100%; }
+    .pricing-tab { flex: 1; text-align: center; font-size: 14px; padding: 11px 16px; }
+}
+
 /* ===== LEGAL PAGES ===== */
 .legal-page { padding: 140px 0 100px; max-width: 760px; margin: 0 auto; }
 .legal-page h1 { font-size: 40px; font-weight: 800; color: var(--dark); margin-bottom: 40px; }
@@ -580,4 +736,117 @@ button { font-family: var(--font); }
 @media (max-width: 480px) {
     .footer-grid { grid-template-columns: 1fr; }
     .process-steps { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* ===== BENTO CARD ANIMATIONS ===== */
+@media (prefers-reduced-motion: no-preference) {
+
+    /* Bar chart – "Webseiten die verkaufen" */
+    .bar {
+        transform-box: fill-box;
+        transform-origin: center bottom;
+        transform: scaleY(0.3);
+        transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .bento-card:hover .bar   { transform: scaleY(1); }
+    .bento-card:hover .bar-2 { transition-delay: 60ms; }
+    .bento-card:hover .bar-3 { transition-delay: 120ms; }
+    .bento-card:hover .bar-4 { transition-delay: 180ms; }
+    .bento-card:hover .bar-5 { transition-delay: 240ms; }
+
+    .trend-line {
+        stroke-dasharray: 200;
+        stroke-dashoffset: 200;
+        transition: stroke-dashoffset 0.7s ease 0.25s;
+    }
+    .bento-card:hover .trend-line { stroke-dashoffset: 0; }
+
+    /* Shield + lock – "Sicherheit als Standard" */
+    @keyframes shield-glow-pulse {
+        0%, 100% { opacity: 0.45; }
+        50%       { opacity: 0.85; }
+    }
+    .bento-card:hover .shield-glow {
+        animation: shield-glow-pulse 1.8s ease-in-out infinite;
+    }
+    .lock-shackle-anim {
+        transform-box: fill-box;
+        transition: transform 0.25s ease;
+    }
+    .bento-card:hover .lock-shackle-anim { transform: translateY(-3px); }
+
+    /* Checklist – "Kein Technik-Stress mehr" */
+    .check-pending-bg  { transition: fill 0.3s ease, stroke 0.3s ease; }
+    .check-pending-dot { transition: opacity 0.2s ease; }
+    .check-pending-mark {
+        stroke-dasharray: 26;
+        stroke-dashoffset: 26;
+        transition: stroke-dashoffset 0.3s ease 0.18s;
+    }
+    .bento-card:hover .check-pending-bg  { fill: #dcfce7; stroke: #16a34a; }
+    .bento-card:hover .check-pending-dot { opacity: 0; }
+    .bento-card:hover .check-pending-mark { stroke-dashoffset: 0; }
+
+    /* Browser mockup – "Unternehmenswebseite" */
+    .browser-card {
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        opacity: 0.5;
+        transform-box: fill-box;
+        transform: translateY(4px);
+    }
+    .bento-card:hover .browser-card        { opacity: 1; transform: translateY(0); }
+    .bento-card:hover .browser-card--2     { transition-delay: 70ms; }
+    .bento-card:hover .browser-card--3     { transition-delay: 140ms; }
+    .browser-cta { transition: fill 0.3s ease; }
+    .bento-card:hover .browser-cta { fill: #818cf8; }
+
+    /* Shopify cart – "Shopify & Online-Shop" */
+    .shop-cta {
+        transform-box: fill-box;
+        transform-origin: center;
+        transition: fill 0.3s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .bento-card:hover .shop-cta { fill: #6366f1; transform: scaleX(1.07); }
+
+    /* Security shield – "IT-Sicherheit & DSGVO" */
+    .security-check {
+        stroke-dasharray: 28;
+        stroke-dashoffset: 28;
+        transition: stroke-dashoffset 0.45s ease 0.1s;
+    }
+    .bento-card:hover .security-check { stroke-dashoffset: 0; }
+    .security-badge {
+        transform-box: fill-box;
+        transform-origin: left center;
+        transform: scaleX(0);
+        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .bento-card:hover .security-badge       { transform: scaleX(1); }
+    .bento-card:hover .security-badge--2    { transition-delay: 60ms; }
+    .bento-card:hover .security-badge--3    { transition-delay: 120ms; }
+    .bento-card:hover .security-badge--4    { transition-delay: 180ms; }
+
+    /* Uptime monitor – "Wartung & persönlicher Support" */
+    .uptime-line {
+        stroke-dasharray: 190;
+        stroke-dashoffset: 190;
+        transition: stroke-dashoffset 1s ease;
+    }
+    .bento-card:hover .uptime-line { stroke-dashoffset: 0; }
+    .uptime-fill {
+        opacity: 0;
+        transition: opacity 0.5s ease 0.85s;
+    }
+    .bento-card:hover .uptime-fill { opacity: 1; }
+    @keyframes uptime-dot-pulse {
+        0%, 100% { transform: scale(1);   opacity: 1; }
+        50%       { transform: scale(1.9); opacity: 0.45; }
+    }
+    .uptime-dot {
+        transform-box: fill-box;
+        transform-origin: center;
+    }
+    .bento-card:hover .uptime-dot {
+        animation: uptime-dot-pulse 1.4s ease-in-out infinite;
+    }
 }

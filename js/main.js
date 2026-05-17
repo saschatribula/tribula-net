@@ -111,7 +111,7 @@ document.querySelectorAll('.faq-question').forEach(button => {
     const btn = document.getElementById('next-section-btn');
     if (!btn) return;
 
-    const ids      = ['hero','probleme','leistungen','prozess','ueber-uns','referenzen','projekte','faq','kontakt'];
+    const ids      = ['hero','probleme','leistungen','prozess','ueber-uns','referenzen','preise','launch-schutz','projekte','faq','kontakt'];
     const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
 
     function currentIndex() {
@@ -135,6 +135,37 @@ document.querySelectorAll('.faq-question').forEach(button => {
 
     window.addEventListener('scroll', update, { passive: true });
     update();
+})();
+
+// ── Pricing tab toggle ───────────────────────
+(function () {
+    const tabs   = document.querySelectorAll('.pricing-tab');
+    const panels = document.querySelectorAll('.pricing-panel');
+    if (!tabs.length) return;
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = tab.dataset.tab;
+
+            tabs.forEach(t => {
+                t.classList.remove('active');
+                t.setAttribute('aria-selected', 'false');
+            });
+            tab.classList.add('active');
+            tab.setAttribute('aria-selected', 'true');
+
+            panels.forEach(panel => {
+                const active = panel.id === 'tab-' + target;
+                panel.classList.toggle('active', active);
+                if (active) panel.removeAttribute('hidden');
+                else panel.setAttribute('hidden', '');
+            });
+
+            // re-observe fade-in cards in newly visible panel
+            document.querySelectorAll('.pricing-panel.active .fade-in:not(.visible)')
+                .forEach(el => observer.observe(el));
+        });
+    });
 })();
 
 // ── Forminit contact form ────────────────────
