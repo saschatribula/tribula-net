@@ -748,32 +748,40 @@ button { font-family: var(--font); }
         transform: scaleY(0.3);
         transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    .bento-card:hover .bar   { transform: scaleY(1); }
-    .bento-card:hover .bar-2 { transition-delay: 60ms; }
-    .bento-card:hover .bar-3 { transition-delay: 120ms; }
-    .bento-card:hover .bar-4 { transition-delay: 180ms; }
-    .bento-card:hover .bar-5 { transition-delay: 240ms; }
+    .bento-card:hover .bar,
+    .bento-card.svg-animated .bar   { transform: scaleY(1); }
+    .bento-card:hover .bar-2,
+    .bento-card.svg-animated .bar-2 { transition-delay: 60ms; }
+    .bento-card:hover .bar-3,
+    .bento-card.svg-animated .bar-3 { transition-delay: 120ms; }
+    .bento-card:hover .bar-4,
+    .bento-card.svg-animated .bar-4 { transition-delay: 180ms; }
+    .bento-card:hover .bar-5,
+    .bento-card.svg-animated .bar-5 { transition-delay: 240ms; }
 
     .trend-line {
         stroke-dasharray: 200;
         stroke-dashoffset: 200;
         transition: stroke-dashoffset 0.7s ease 0.25s;
     }
-    .bento-card:hover .trend-line { stroke-dashoffset: 0; }
+    .bento-card:hover .trend-line,
+    .bento-card.svg-animated .trend-line { stroke-dashoffset: 0; }
 
     /* Shield + lock – "Sicherheit als Standard" */
     @keyframes shield-glow-pulse {
         0%, 100% { opacity: 0.45; }
         50%       { opacity: 0.85; }
     }
-    .bento-card:hover .shield-glow {
+    .bento-card:hover .shield-glow,
+    .bento-card.svg-animated .shield-glow {
         animation: shield-glow-pulse 1.8s ease-in-out infinite;
     }
     .lock-shackle-anim {
         transform-box: fill-box;
         transition: transform 0.25s ease;
     }
-    .bento-card:hover .lock-shackle-anim { transform: translateY(-3px); }
+    .bento-card:hover .lock-shackle-anim,
+    .bento-card.svg-animated .lock-shackle-anim { transform: translateY(-3px); }
 
     /* Checklist – "Kein Technik-Stress mehr" */
     .check-pending-bg  { transition: fill 0.3s ease, stroke 0.3s ease; }
@@ -783,9 +791,12 @@ button { font-family: var(--font); }
         stroke-dashoffset: 26;
         transition: stroke-dashoffset 0.3s ease 0.18s;
     }
-    .bento-card:hover .check-pending-bg  { fill: #dcfce7; stroke: #16a34a; }
-    .bento-card:hover .check-pending-dot { opacity: 0; }
-    .bento-card:hover .check-pending-mark { stroke-dashoffset: 0; }
+    .bento-card:hover .check-pending-bg,
+    .bento-card.svg-animated .check-pending-bg  { fill: #dcfce7; stroke: #16a34a; }
+    .bento-card:hover .check-pending-dot,
+    .bento-card.svg-animated .check-pending-dot { opacity: 0; }
+    .bento-card:hover .check-pending-mark,
+    .bento-card.svg-animated .check-pending-mark { stroke-dashoffset: 0; }
 
     /* Browser mockup – "Unternehmenswebseite" */
     .browser-card {
@@ -794,11 +805,15 @@ button { font-family: var(--font); }
         transform-box: fill-box;
         transform: translateY(4px);
     }
-    .bento-card:hover .browser-card        { opacity: 1; transform: translateY(0); }
-    .bento-card:hover .browser-card--2     { transition-delay: 70ms; }
-    .bento-card:hover .browser-card--3     { transition-delay: 140ms; }
+    .bento-card:hover .browser-card,
+    .bento-card.svg-animated .browser-card        { opacity: 1; transform: translateY(0); }
+    .bento-card:hover .browser-card--2,
+    .bento-card.svg-animated .browser-card--2     { transition-delay: 70ms; }
+    .bento-card:hover .browser-card--3,
+    .bento-card.svg-animated .browser-card--3     { transition-delay: 140ms; }
     .browser-cta { transition: fill 0.3s ease; }
-    .bento-card:hover .browser-cta { fill: #818cf8; }
+    .bento-card:hover .browser-cta,
+    .bento-card.svg-animated .browser-cta { fill: #818cf8; }
 
     /* Shopify cart – "Shopify & Online-Shop" */
     .shop-cta {
@@ -806,7 +821,8 @@ button { font-family: var(--font); }
         transform-origin: center;
         transition: fill 0.3s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    .bento-card:hover .shop-cta { fill: #6366f1; transform: scaleX(1.07); }
+    .bento-card:hover .shop-cta,
+    .bento-card.svg-animated .shop-cta { fill: #6366f1; transform: scaleX(1.07); }
 
     /* Security shield – "IT-Sicherheit & DSGVO" */
     .security-check {
@@ -814,17 +830,22 @@ button { font-family: var(--font); }
         stroke-dashoffset: 28;
         transition: stroke-dashoffset 0.45s ease 0.1s;
     }
-    .bento-card:hover .security-check { stroke-dashoffset: 0; }
+    .bento-card:hover .security-check,
+    .bento-card.svg-animated .security-check { stroke-dashoffset: 0; }
     .security-badge {
         transform-box: fill-box;
         transform-origin: left center;
         transform: scaleX(0);
         transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    .bento-card:hover .security-badge       { transform: scaleX(1); }
-    .bento-card:hover .security-badge--2    { transition-delay: 60ms; }
-    .bento-card:hover .security-badge--3    { transition-delay: 120ms; }
-    .bento-card:hover .security-badge--4    { transition-delay: 180ms; }
+    .bento-card:hover .security-badge,
+    .bento-card.svg-animated .security-badge       { transform: scaleX(1); }
+    .bento-card:hover .security-badge--2,
+    .bento-card.svg-animated .security-badge--2    { transition-delay: 60ms; }
+    .bento-card:hover .security-badge--3,
+    .bento-card.svg-animated .security-badge--3    { transition-delay: 120ms; }
+    .bento-card:hover .security-badge--4,
+    .bento-card.svg-animated .security-badge--4    { transition-delay: 180ms; }
 
     /* Uptime monitor – "Wartung & persönlicher Support" */
     .uptime-line {
@@ -832,12 +853,14 @@ button { font-family: var(--font); }
         stroke-dashoffset: 190;
         transition: stroke-dashoffset 1s ease;
     }
-    .bento-card:hover .uptime-line { stroke-dashoffset: 0; }
+    .bento-card:hover .uptime-line,
+    .bento-card.svg-animated .uptime-line { stroke-dashoffset: 0; }
     .uptime-fill {
         opacity: 0;
         transition: opacity 0.5s ease 0.85s;
     }
-    .bento-card:hover .uptime-fill { opacity: 1; }
+    .bento-card:hover .uptime-fill,
+    .bento-card.svg-animated .uptime-fill { opacity: 1; }
     @keyframes uptime-dot-pulse {
         0%, 100% { transform: scale(1);   opacity: 1; }
         50%       { transform: scale(1.9); opacity: 0.45; }
@@ -846,7 +869,8 @@ button { font-family: var(--font); }
         transform-box: fill-box;
         transform-origin: center;
     }
-    .bento-card:hover .uptime-dot {
+    .bento-card:hover .uptime-dot,
+    .bento-card.svg-animated .uptime-dot {
         animation: uptime-dot-pulse 1.4s ease-in-out infinite;
     }
 }

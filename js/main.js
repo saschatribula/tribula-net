@@ -168,6 +168,23 @@ document.querySelectorAll('.faq-question').forEach(button => {
     });
 })();
 
+// ── Bento SVG in-view animation (touch/mobile only) ──
+(function () {
+    const isTouchDevice = () => window.matchMedia('(hover: none)').matches;
+    if (!isTouchDevice()) return;
+
+    const svgObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('svg-animated');
+                svgObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.4 });
+
+    document.querySelectorAll('.bento-card').forEach(el => svgObserver.observe(el));
+})();
+
 // ── Forminit contact form ────────────────────
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
