@@ -88,7 +88,7 @@ button { font-family: var(--font); }
     backdrop-filter: blur(12px);
     box-shadow: var(--shadow);
 }
-.header-badge-img { width:150px; height:auto; }
+.header-badge-img { width:150px; height:auto; margin-bottom: 1rem;}
 .nav {
     display: flex; align-items: center; justify-content: space-between; height: 72px;
 }
